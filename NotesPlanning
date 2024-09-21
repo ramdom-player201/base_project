@@ -1,14 +1,16 @@
 DATAMODEL:
+	This is the root object under which all other objects are indirectly interfaced with.
+	Debug, initialisation and test classes can be an exception to this.
 	* getService() -- returns requested service, returning either the current or a new one.
 
 SERVICES:
 	TerminalService
 	{
 		This service interacts with the command prompt terminal
-		* createColouredText -- returns colouredText object
+		* createColouredText() -- returns colouredText object
 		ColouredText
 		{
-			This subclass stores text in coloured form for printing
+			This subclass stores text in coloured form for printing to the terminal
 			* type(txt,col) -- adds text to the end of the current text with colour formatting
 			* get() -- returns the colour formatted text
 			* clear() -- clears stored text
@@ -18,10 +20,32 @@ SERVICES:
 	LogService
 	{
 		This service writes to, reads from, and manages log files
+		Logs are used for developer debugging, and can be browsed via the terminal menu.
+		Log files can also be viewed manually using file manager, in their respective log folder (stored with the program file)
+		It is important to make sure that file content is properly santised, even something as simple as developer logs.
+		Logs are text files that can be created by the program. Logs are formatted to have:
+			* automatic expiry time -- logs will be auto deleted upon program startup
+			* title -- logs have a title that describes their primary topic
+			* description -- logs can have a short description to describe their purpose
+			* filterInfo -- this describes a list of relevant topics that logs can be searched by
+			* content -- this is a list of individual log items written to the log file
+	}
+	FileService
+	{
+		This service reads from and writes to files, but makes use of file santisation to ensure that all file content is accessed safely.
+		* safeReadText(file,lineParams) -- reads from file
 	}
 	SystemService
 	{
 		This service gets and caches system information such as OS version, monitor dimensions, etc
+	}
+	WindowManagementService
+	{
+		This service creates and manages window objects.
+		* createWindow(windowParams) -- generate and return a window object
+		* getWindow(id) -- return window of specific id
+		* getWindows() -- return a list of window id's with window meta data id=meta
+		* closeWindows() -- close all windows in the program, and send close request to terminal if applicable
 	}
 
 
