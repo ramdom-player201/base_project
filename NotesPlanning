@@ -1,0 +1,31 @@
+DATAMODEL:
+	* getService() -- returns requested service, returning either the current or a new one.
+
+SERVICES:
+	TerminalService
+	{
+		This service interacts with the command prompt terminal
+		* createColouredText -- returns colouredText object
+		ColouredText
+		{
+			This subclass stores text in coloured form for printing
+			* type(txt,col) -- adds text to the end of the current text with colour formatting
+			* get() -- returns the colour formatted text
+			* clear() -- clears stored text
+			* print() -- prints formatted text to terminal
+		}
+	}
+	LogService
+	{
+		This service writes to, reads from, and manages log files
+	}
+	SystemService
+	{
+		This service gets and caches system information such as OS version, monitor dimensions, etc
+	}
+
+
+
+
+
+etc
