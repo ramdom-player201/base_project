@@ -5,6 +5,8 @@
 #include <iostream> // import input/output stream library
 #include "CustomConsole.h"
 
+#include "Services/WindowManagementService.h"
+
 using namespace std; // unsure what this does
 
 int main()
@@ -18,11 +20,14 @@ int main()
 	CustomConsole::log("Hello 2");
 
 	do {
-		cout << "1. Option1\n"; // console output
-		cout << "2. Option 2\n";
-		cout << "3. Exit\n";
+		cout << std::endl;
+		cout << "1. Test create window\n"; // console output
+		cout << "2. Test list windows\n";
+		cout << "3. Test remove window\n";
+		cout << "9. Exit\n";
 		cout << "Enter your choice: ";
 		cin >> choice; // console input
+		cout << std::endl;
 
 		if (cin.fail()) { // cin.fail() checks the cin for error states, and returns true or false
 			cout << "Input error";
@@ -32,20 +37,49 @@ int main()
 			continue; // restart loop
 		}
 
+		//windowParams params;
+		//Window newWindow;
+
 		switch (choice) {
-		case 1:
-			cout << "You selected Option 1.\n";
+		case 1: {
+			cout << "Creating test window.\n";
+			cout << "Choose a title.\n";
+			std::string newTitle;
+			cin >> newTitle;
+
+			windowParams params;
+			params.width = 800;
+			params.height = 600;
+			params.title = newTitle;
+			params.type = windowParams::programWindow;
+			Window newWindow(WindowManagementService::createWindow(params));
 			break;
-		case 2:
-			cout << "You selected Option 2.\n";
+		}
+		case 2: {
+			cout << "Listing all windows...\n";
+			cout << "There are currently ["<<WindowManagementService::getWindowCount()<<"] windows open.\n";
+			auto windows = WindowManagementService::getAllWindows();
+			for (const auto& pair : windows) {
+				int id = pair.first;
+				const Window& win = pair.second;
+				std::cout << "Window ID: " << id << ", Title: " << win.getTitle() << std::endl;
+			}
 			break;
-		case 3:
+		}
+		case 3: {
+			int id;
+			cout << "Choose a window ID.\n";
+			cin >> id;
+			WindowManagementService::closeWindow(id);
+			break;
+		}
+		case 9:
 			cout << "Exiting.\n";
 			break;
 		default:
 			cout << "Invalid. Try again.\n";
 		}
-	} while (choice != 3);
+	} while (choice != 9);
 	
 	return 0;
 }
