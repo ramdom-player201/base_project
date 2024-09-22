@@ -48,7 +48,15 @@ SERVICES:
 		* closeWindows() -- close all windows in the program, and send close request to terminal if applicable
 	}
 
-
+OBJECTS:
+	Window
+	{
+		This object is a window object
+		Windows have:
+		* topbar ribbon
+		* bottom bar
+		* tiles (up to 6 or 9 slots)
+	}
 
 
 
