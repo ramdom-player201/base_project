@@ -90,5 +90,6 @@ void WindowManagementService::closeAllWindows() {
 
 // return number of windows
 int WindowManagementService::getWindowCount() {
-	return windows.size();
+	return static_cast<int>(windows.size());
+	// warning, size_t to int; possible loss of data :: there is already a limit in place, and that limit is not expected to be high enough to cause any issues
 }

@@ -6,15 +6,15 @@
 #include <string>
 
 struct windowParams {
-    enum WindowType {
+    enum class WindowType {
         programWindow, // standard type
         warningWindow, // display a warning
         selectionWindow, // return a value when closed
         errorWindow // hold an error state
     };
 
-    int width;
-    int height;
+    int width = 0;
+    int height = 0;
     std::string title;
     WindowType type;
 

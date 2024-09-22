@@ -51,7 +51,7 @@ int main()
 			params.width = 800;
 			params.height = 600;
 			params.title = newTitle;
-			params.type = windowParams::programWindow;
+			params.type = windowParams::WindowType::programWindow;
 			Window newWindow(WindowManagementService::createWindow(params));
 			break;
 		}

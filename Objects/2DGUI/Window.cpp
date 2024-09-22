@@ -10,7 +10,7 @@ Window::Window()
 	defaultParams.width = 0;
 	defaultParams.height = 0;
 	defaultParams.title = "ERROR";
-	defaultParams.type = defaultParams.errorWindow;
+	defaultParams.type = windowParams::WindowType::errorWindow;
 	params = defaultParams;
 	std::cout << "Window data: width = " << params.width << ", height = " << params.height << ", title = " << params.title << std::endl;
 }
