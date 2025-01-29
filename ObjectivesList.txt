@@ -36,3 +36,9 @@ Design software to be:
 * Cross-platform - software is built primarily for windows, but linux compatability should also be prioritised. Mac support would be ideal, but is not a priority.
 * Open-source - software should be open-source and only utilise libraries with open-source licences
 * Avoid excess use of libraries - software should try to build as much from scratch as possible and avoid over-reliance on libraries
+
+The software should be well documented:
+* The software should have a documentation library built in
+* All features should have a way to open their documentation page
+* Documentation can be: live, deprecated, experimental, missing
+* Classes should include 

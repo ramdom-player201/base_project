@@ -1,7 +1,7 @@
 ﻿// base_project.cpp : Defines the entry point for the application.
 //
 
-#include "base_project.h" // unsure what this does
+#include "base_project.h" // includes header
 #include <iostream> // import input/output stream library
 #include "CustomConsole.h"
 #include <limits>
