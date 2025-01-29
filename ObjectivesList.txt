@@ -1,0 +1,38 @@
+
+
+Install SFML
+Install luau
+
+Consider how lua scripting may interact with program
+
+
+Get windows to render
+Get windows to take input
+
+
+Develop UI to be:
+* Flexible - UI system needs to be able to be used in different ways across the program
+* Optimised - UI should be fast, eg: only process frame redraws as needed
+* Intuitive - UI should be easy to use and navigate
+* Aestheticly nice - UI should look decent
+* Customisable - UI should be customisable in all aspects (colour, text rendering, etc)
+
+Implement localisation and dynamic text rendering:
+* All static text should be drawn from a localisation table, and adjust based on selected language
+* Text where a translation does not exist should default to English, prefaced by a translation error icon with tooltip
+* All text should be resizable based on system settings, for accessibility reasons
+* Text boxes should never assume text to be a fixed length. Different languages have different word lengths.
+* Text truncation should be avoided as much as possible. Ideally, text should become multi-line if too long to fit.
+* If truncation is necassary, text should be expandable or utilise a tooltip.
+
+Use an object heirachy for almost everything.
+* Anything related to project specific settings or data should be configurable via Service objects in the Heirachy display
+
+Design software to be:
+* Lightweight - software should not take up several gigbabytes of program data
+* Optimised - software should be fast, memory-efficient and avoid handling heavy operations linearly
+* Flexible - software
+* Intuitive - software should be easy to use and avoid an overcomplicated layout or workflow
+* Cross-platform - software is built primarily for windows, but linux compatability should also be prioritised. Mac support would be ideal, but is not a priority.
+* Open-source - software should be open-source and only utilise libraries with open-source licences
+* Avoid excess use of libraries - software should try to build as much from scratch as possible and avoid over-reliance on libraries

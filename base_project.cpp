@@ -4,14 +4,15 @@
 #include "base_project.h" // unsure what this does
 #include <iostream> // import input/output stream library
 #include "CustomConsole.h"
+#include <limits>
 
 #include "Services/WindowManagementService.h"
 
-using namespace std; // unsure what this does
+using namespace std; // allows usage of std functions like std::cout without the prefixed std
 
 int main()
 {
-	cout << "Hello CMake." << endl; // unsure what this does
+	cout << "Hello CMake." << endl;
 
 	int choice;
 	CustomConsole console;
@@ -32,7 +33,7 @@ int main()
 		if (cin.fail()) { // cin.fail() checks the cin for error states, and returns true or false
 			cout << "Input error";
 			cin.clear(); // remove error state
-			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // discard errored input
+			cin.ignore((numeric_limits<streamsize>::max)(), '\n'); // discard errored input (wrapped in brackets because something was overriding max somewhere)
 			cout << "Invalid input. Please enter an integer.\n";
 			continue; // restart loop
 		}
@@ -57,7 +58,7 @@ int main()
 		}
 		case 2: {
 			cout << "Listing all windows...\n";
-			cout << "There are currently ["<<WindowManagementService::getWindowCount()<<"] windows open.\n";
+			cout << "There are currently [" << WindowManagementService::getWindowCount() << "] windows open.\n";
 			auto windows = WindowManagementService::getAllWindows();
 			for (const auto& pair : windows) {
 				int id = pair.first;
@@ -80,6 +81,6 @@ int main()
 			cout << "Invalid. Try again.\n";
 		}
 	} while (choice != 9);
-	
+
 	return 0;
 }

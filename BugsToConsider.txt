@@ -1,0 +1,10 @@
+Mouse up events not recognised - ensure new mouse down cancels,
+consider ways to find out what the mouse is doing even when out of tab,
+always cancel on window focus lost
+
+		Based on testing with SFML, mouse events are recorded outside of the window. More testing is needed, but logic may be required to drop external mouse input
+
+Text truncate - avoid any scenario where text can be truncated,
+anything involving text MUST be scalable to fit any window size.
+Support multi-line on things, but past a certain scaling point, provide an expansion panel
+All gui must be resizable and compact, without hiding too much from the user
