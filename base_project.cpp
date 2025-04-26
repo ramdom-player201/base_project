@@ -16,7 +16,24 @@ int main()
 {
 	cout << "Hello CMake." << endl;
 
-	sf::RenderWindow newWindow();
+	std::cout << "WindowName" << std::endl;
+	sf::RenderWindow window(sf::VideoMode({500,500}),"WindowName");
+	while (window.isOpen()) {
+		
+		while (const std::optional event = window.pollEvent())
+		{
+			// "close requested" event: we close the window
+			if (event->is<sf::Event::Closed>())
+				window.close();
+		}
+
+		// Clear the window
+		window.clear(sf::Color::Black);
+
+		// Display the contents
+		window.display();
+	}
+
 
 	int choice;
 	CustomConsole console;
