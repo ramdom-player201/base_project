@@ -6,6 +6,8 @@
 #include "CustomConsole.h"
 #include <limits>
 
+#include "SFML/Graphics.hpp"
+
 #include "Services/WindowManagementService.h"
 
 using namespace std; // allows usage of std functions like std::cout without the prefixed std
@@ -13,6 +15,8 @@ using namespace std; // allows usage of std functions like std::cout without the
 int main()
 {
 	cout << "Hello CMake." << endl;
+
+	sf::RenderWindow newWindow();
 
 	int choice;
 	CustomConsole console;
